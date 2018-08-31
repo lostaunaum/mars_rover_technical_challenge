@@ -1,6 +1,4 @@
-# Project Title
-
-Mars Rover Technical Challenge
+# Mars Rover Technical Challenge
 
 ## Getting Started
 
@@ -75,7 +73,7 @@ Current version is [V1](v1/rover)
 
 ## Authors
 
-* **Marco A Lostaunau** - *Initial work* - [Marco A Lostaunau](https://github.com/lostaunaum)
+* **Marco A Lostaunau** - *Initial work* - [my github](https://github.com/lostaunaum)
 
 ## License
 
