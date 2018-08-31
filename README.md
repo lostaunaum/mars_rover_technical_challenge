@@ -1,6 +1,4 @@
-# Project Title
-
-Mars Rover Technical Challenge
+# Mars Rover Technical Challenge
 
 ## Getting Started
 
