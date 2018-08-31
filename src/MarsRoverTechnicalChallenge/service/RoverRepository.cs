@@ -15,9 +15,9 @@ namespace MarsRoverTechnicalChallenge.service
             _collection = new Dictionary<int, Rover>();
         }
 
-        public ReponseMessage CreateRover(Rover rover)
+        public ResponseMessage CreateRover(Rover rover)
         {
-            var result = new ReponseMessage();
+            var result = new ResponseMessage();
             
             try
             {
@@ -47,9 +47,9 @@ namespace MarsRoverTechnicalChallenge.service
             }
         }
 
-        public ReponseMessage UpdateRover(int roverID, Rover rover)
+        public ResponseMessage UpdateRover(int roverID, Rover rover)
         {
-            var result = new ReponseMessage();
+            var result = new ResponseMessage();
             
             try
             {
@@ -82,9 +82,9 @@ namespace MarsRoverTechnicalChallenge.service
             }
         }
 
-        public ReponseMessage MoveRover(int roverID, string movementInstruction)
+        public ResponseMessage MoveRover(int roverID, string movementInstruction)
         {
-            var result = new ReponseMessage();
+            var result = new ResponseMessage();
             var rover = GetRover(roverID);
 
             try
@@ -109,9 +109,9 @@ namespace MarsRoverTechnicalChallenge.service
             }
         }
 
-        public ReponseMessage DeleteRover(int roverID)
+        public ResponseMessage DeleteRover(int roverID)
         {
-            var result = new ReponseMessage();
+            var result = new ResponseMessage();
 
             try
             {
@@ -146,7 +146,7 @@ namespace MarsRoverTechnicalChallenge.service
 
         public Rover GetRover(int roverID)
         {
-            var result = new ReponseMessage();
+            var result = new ResponseMessage();
 
             if (_collection[roverID] != null)
             {

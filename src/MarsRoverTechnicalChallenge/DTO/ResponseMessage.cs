@@ -3,7 +3,7 @@ using System.Net;
 
 namespace MarsRoverTechnicalChallenge.DTO
 {
-    public class ReponseMessage
+    public class ResponseMessage
     {
         public HttpStatusCode StatusCode { get; set; }
         public string ErrorMessage { get; set; }

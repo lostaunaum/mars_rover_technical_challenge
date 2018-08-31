@@ -6,11 +6,11 @@ namespace MarsRoverTechnicalChallenge.service.Interface
 {
     public interface IRoverRepository
     {
-        ReponseMessage CreateRover(Rover rover);
-        ReponseMessage UpdateRover(int roverID, Rover rover);
-        ReponseMessage DeleteRover(int roverID);
+        ResponseMessage CreateRover(Rover rover);
+        ResponseMessage UpdateRover(int roverID, Rover rover);
+        ResponseMessage DeleteRover(int roverID);
         Rover GetRover(int roverID);
         List<Rover> GetAllRovers();
-        ReponseMessage MoveRover(int roverID, string movementInstruction);
+        ResponseMessage MoveRover(int roverID, string movementInstruction);
     }
 }
