@@ -51,10 +51,6 @@ dotnet test
 These test will make sure that each end point is inserting correct data
 These tests will also make sure that the rover is moving appropriately
 
-```
-Give an example
-```
-
 ### And coding style tests
 
 The coding styles have stayed true to the RESTful best practices.
