@@ -1,4 +1,5 @@
-﻿using MarsRoverTechnicalChallenge.service.Interface;
+﻿using MarsRoverTechnicalChallenge.Configuration;
+using MarsRoverTechnicalChallenge.service.Interface;
 using Microsoft.Extensions.DependencyInjection;
 using MarsRoverTechnicalChallenge.service;
 using Microsoft.Extensions.Configuration;
@@ -21,7 +22,7 @@ namespace MarsRoverTechnicalChallenge
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<IRoverRepository, RoverRepository>();
-
+            services.Configure<ServiceConfiguration>(Configuration.GetSection("ServiceConfiguration"));
             services.AddOptions();
             
             services.AddSwaggerGen(c =>

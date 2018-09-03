@@ -21,7 +21,7 @@ namespace MarsRoverTechnicalChallenge.service
             
             try
             {
-                if (_collection[rover.RoverID] != null)
+                if (_collection.ContainsKey(rover.RoverID))
                 {
                     result.ErrorMessage = "RoverId is already in use. Please select a different RoverID";
                     result.StatusCode = HttpStatusCode.BadRequest;
@@ -53,7 +53,7 @@ namespace MarsRoverTechnicalChallenge.service
             
             try
             {
-                if (_collection[roverID] != null)
+                if (_collection.ContainsKey(roverID))
                 {
                     _collection[rover.RoverID] = rover;
                 }
@@ -115,7 +115,7 @@ namespace MarsRoverTechnicalChallenge.service
 
             try
             {
-                if (_collection[roverID] != null)
+                if (_collection.ContainsKey(roverID))
                 {
                     _collection.Remove(roverID);
                 }
@@ -144,11 +144,14 @@ namespace MarsRoverTechnicalChallenge.service
             }
         }
 
+        public void DeleteAllRovers()
+        {
+            _collection.Clear();
+        }
+
         public Rover GetRover(int roverID)
         {
-            var result = new ResponseMessage();
-
-            if (_collection[roverID] != null)
+            if (_collection.ContainsKey(roverID))
             {
                 return _collection[roverID];
             }

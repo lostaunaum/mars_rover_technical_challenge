@@ -12,5 +12,6 @@ namespace MarsRoverTechnicalChallenge.service.Interface
         Rover GetRover(int roverID);
         List<Rover> GetAllRovers();
         ResponseMessage MoveRover(int roverID, string movementInstruction);
+        void DeleteAllRovers();
     }
 }

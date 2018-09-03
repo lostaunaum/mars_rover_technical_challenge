@@ -4,9 +4,11 @@ using System.Linq;
 using System.Net;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using MarsRoverTechnicalChallenge.Configuration;
 using MarsRoverTechnicalChallenge.DTO;
 using MarsRoverTechnicalChallenge.service.Interface;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace MarsRoverTechnicalChallenge.Controllers
@@ -15,10 +17,11 @@ namespace MarsRoverTechnicalChallenge.Controllers
     public class RoversController : Controller
     {
         private readonly IRoverRepository _repository;
-
-        public RoversController(IRoverRepository repository)
+        private readonly IOptions<ServiceConfiguration> _configuration;
+        public RoversController(IRoverRepository repository, IOptions<ServiceConfiguration> configuration)
         {
             _repository = repository;
+            _configuration = configuration;
         }
 
         // GET /rovers
@@ -66,7 +69,7 @@ namespace MarsRoverTechnicalChallenge.Controllers
 
             if (result.Success)
             {
-                return Created("my url", result);
+                return Created(_configuration.Value.Host + "api/v1/rovers/" + roverID, result);
             }
 
             return BadRequest();
@@ -126,6 +129,17 @@ namespace MarsRoverTechnicalChallenge.Controllers
         public ActionResult Delete(int id)
         {
             return Ok(_repository.DeleteRover(id));
+        }
+
+        // DELETE /rovers
+        [ProducesResponseType(200)]
+        [ProducesResponseType(500)]
+        [HttpDelete]
+        public ActionResult Delete()
+        {
+            _repository.DeleteAllRovers();
+
+            return Ok();
         }
 
         private Tuple<bool, string> IsMovementValid(string movement)
